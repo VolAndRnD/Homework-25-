@@ -6,13 +6,17 @@ public class PedometrManager {
         int[] tmp = new int[day+1];
 
         for (int i = 0; i < day; i++) {
-            tmp[i] = stepDay[i];}
+            if (stepDay[i] == 0) {stepDay = tmp;}
+            else{
+            tmp[i] = stepDay[i];
+            }
+        }
 
             tmp[day - 1] = tmp[day - 1] + step;
             stepDay = tmp;
 
         for (int i = 0; i < day; i++) {
-            if (maxStep < tmp[i]) {
+            if (maxStep <= tmp[i]) {
                 maxStep = tmp[i] + 1;
             }
         }
