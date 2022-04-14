@@ -1,25 +1,20 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class PedometrManager {
-    public int[] stepDay = new int[1];
     int maxStep;
+    Map<Integer, Integer> add = new HashMap<Integer, Integer>();
+
 
     public int add(int day, int step) {
-        int[] tmp = new int[day+1];
+        add.put(day, step);
+        for (Map.Entry<Integer, Integer> entry : add.entrySet()){
+                if (maxStep <= entry.getValue()){
+                    maxStep = entry.getValue()+1;}
+                }
 
-        for (int i = 0; i < day; i++) {
-            if (stepDay[i] == 0) {stepDay = tmp;}
-            else{
-            tmp[i] = stepDay[i];
-            }
-        }
 
-            tmp[day - 1] = tmp[day - 1] + step;
-            stepDay = tmp;
 
-        for (int i = 0; i < day; i++) {
-            if (maxStep <= tmp[i]) {
-                maxStep = tmp[i] + 1;
-            }
-        }
         return maxStep;
     }
 }
