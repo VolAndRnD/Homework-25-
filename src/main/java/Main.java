@@ -1,10 +1,23 @@
 public class Main {
     public static void main(String[] args) {
         PedometrManager pM = new PedometrManager();
-        System.out.println("Сколько нужно сделать шагов на следующий день, чтобы побить максимум?? " + pM.add(1,10));
-        System.out.println("Сколько нужно сделать шагов на следующий день, чтобы побить максимум?? " + pM.add(1,10));
-        System.out.println("Сколько нужно сделать шагов на следующий день, чтобы побить максимум?? " + pM.add(2,25));
-        System.out.println("Сколько нужно сделать шагов на следующий день, чтобы побить максимум? " +pM.add(3,55));
+        DayComparator dC = new DayComparator(50);
+
+        pM.add1(1,10);
+        pM.add1(2,25);
+        pM.add1(3,20);
+        pM.add1(4,35);
+        pM.add1(5,30);
+
+        pM.add2(1,40);
+        pM.add2(2,70);
+        pM.add2(3,90);
+        pM.add2(4,100);
+        pM.add2(5,150);
+
+        System.out.println("Cравнение шагов " + pM.compareTo(pM) );
+        System.out.println("Cравнение количества дней,в которых шагов больше минимума " + dC.compare(pM, pM) );
+
 
     }
 }

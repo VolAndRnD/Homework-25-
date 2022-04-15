@@ -1,22 +1,53 @@
-public class PedometrManager {
-    public int[] stepDay = new int[1];
-    int maxStep;
+import java.util.HashMap;
+import java.util.Map;
 
-    public int add(int day, int step) {
-        int[] tmp = new int[day+1];
+    class PedometrManager implements Comparable< PedometrManager> {
+        public Map<Integer, Integer> add1 = new HashMap<Integer, Integer>();
+        private int sum;
 
-        for (int i = 0; i < day; i++) {
-            tmp[i] = stepDay[i];}
+        public Map<Integer, Integer> add2 = new HashMap<Integer, Integer>();
+        private int sum2;
 
-            tmp[day - 1] = tmp[day - 1] + step;
-            stepDay = tmp;
 
-        for (int i = 0; i < day; i++) {
-            if (maxStep < tmp[i]) {
-                maxStep = tmp[i] + 1;
+        public void add1(int day, int step) {
+            if (add1.containsKey(day)) {
+                add1.put(day, add1.get(day) + step);
+            } else {
+                add1.put(day, step);
             }
         }
-        return maxStep;
-    }
-}
 
+        public void add2(int day, int step) {
+            if (add2.containsKey(day)) {
+                add2.put(day, add2.get(day) + step);
+            } else {
+                add2.put(day, step);
+            }
+        }
+
+        public int getSum() {
+            for (int steps : add1.values()) {
+                sum = sum + steps;
+            }
+            return sum;
+        }
+
+        public int getSum2() {
+            for (int steps : add2.values()) {
+                sum2 = sum2 + steps;
+            }
+            return sum2;        }
+
+
+
+        @Override
+        public int compareTo(PedometrManager pM) {
+            if (pM.getSum() > pM.getSum2()) {
+                return 1;
+            } else if (pM.getSum() < pM.getSum2()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    }
