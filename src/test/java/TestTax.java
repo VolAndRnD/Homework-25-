@@ -5,36 +5,36 @@ import org.junit.jupiter.api.Assertions;
 public class TestTax {
     @ParameterizedTest
     @CsvFileSource( resources = {"testTax.csv"})
-    public void testTax (int profit, int expected) {
+    public void testTax (double profit, double expected) {
         Login login = new Login();
         login.changeIncome(profit);
 
-        int actual = login.tax(login.income);
+        double actual = login.tax(login.income);
         Assertions.assertEquals( actual,expected);
     }
     @ParameterizedTest
     @CsvFileSource( resources = {"testTax1.csv"})
-    public void testTax1 (int profit, int loss, int expected) {
+    public void testTax1 (double profit, double loss, double expected) {
         Login login = new Login();
         login.changeIncome(profit);
         login.changeConsumption(loss);
 
-        int actual = login.tax1(login.income, login.consumption);
+        double actual = login.tax1(login.income, login.consumption);
         Assertions.assertEquals( actual,expected);
     }
 
     @ParameterizedTest
     @CsvFileSource( resources = {"testIncome.csv"})
-    public void testIncome (int profit, int expected) {
+    public void testIncome (double profit, double expected) {
         Login login = new Login();
-        int actual = login.changeIncome(profit);
+        double actual = login.changeIncome(profit);
         Assertions.assertEquals(actual,expected);
     }
     @ParameterizedTest
     @CsvFileSource( resources = {"testConsumption.csv"})
-    public void testConsumption (int loss, int expected) {
+    public void testConsumption (double loss, double expected) {
         Login login = new Login();
-        int actual = login.changeConsumption(loss);
+        double actual = login.changeConsumption(loss);
         Assertions.assertEquals(actual,expected);
     }
 
