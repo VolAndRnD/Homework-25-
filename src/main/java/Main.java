@@ -9,3 +9,5 @@ public class Main {
         System.out.println( "Налог по ставке в 15% составляет - " + login.tax1(login.income, login.consumption) );
     }
 }
+
+
