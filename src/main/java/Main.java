@@ -1,11 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Login login = new Login();
+        PedometrManager pM = new PedometrManager();
 
-        login.changeIncome( 49000);
-        login.changeConsumption(14000);
 
-        System.out.println( "Налог по ставке в 6% составляет - " + login.tax(login.income) );
-        System.out.println( "Налог по ставке в 15% составляет - " + login.tax1(login.income, login.consumption) );
+        System.out.println("Сколько нужно сделать шагов на следующий день, чтобы побить максимум?? " + pM.add(2,0));
+        System.out.println("Сколько нужно сделать шагов на следующий день, чтобы побить максимум?? " + pM.add(2,15));
+
     }
 }
+
+
+
