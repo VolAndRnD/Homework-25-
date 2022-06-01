@@ -1,12 +1,27 @@
+
 public class Main {
     public static void main(String[] args) {
-        Login login = new Login();
+        PedometrManager pM = new PedometrManager();
 
-        login.changeIncome( 49000);
-        login.changeConsumption(14000);
 
-        System.out.println( "Налог по ставке в 6% составляет - " + login.tax(login.income) );
-        System.out.println( "Налог по ставке в 15% составляет - " + login.tax1(login.income, login.consumption) );
+
+        pM.add1(1,10);
+        pM.add1(2,25);
+        pM.add1(3,20);
+        pM.add1(4,35);
+        pM.add1(5,30);
+
+        pM.add1(100, 1000);
+        pM.add1(150, 10000);
+        pM.add1(200, 20000);
+        pM.add1(250, 100000);
+        pM.add1(300, 200000);
+        pM.setLimit(10000);
+        pM.printAllDaysByCriteria(entry ->  entry.getValue()> pM.getLimit());
+
+
+
+
     }
 }
 
